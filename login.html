@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login | Tulipán</title>
+    <link rel="stylesheet" href="assets/css/estilos.css" />
+    </head>
+    <body>
+
+        <header>
+            <div class="container header-content">
+                <div class="logo"><a href="/index.html"><img src="/assets/imagen/tulipan.png" alt="Tulipan"></a>
+                        <h3>Tulipan</h3>
+                </div>     
+            </div>
+        </header>
+        
+            <div class="login-container">
+                <h2>Ingreso de Empleados</h2>
+                <form action="php/login.php" method="POST">
+                <input type="text" name="usuario" placeholder="Usuario" required />
+                <input type="password" name="contrasena" placeholder="Contraseña" required />
+                
+                <div style="margin: 10px 0;">
+                    <input type="checkbox" name="recordar" id="recordar">
+                    <label for="recordar">Recordarme</label>
+                </div>
+            
+                <button type="submit">Ingresar</button>
+                </form>
+            
+                <div style="margin-top: 10px;">
+                <a href="recuperar_contrasena.html">¿Olvidaste tu contraseña?</a>
+                </div>
+            </div>
+    
+    </body>
+</html>
