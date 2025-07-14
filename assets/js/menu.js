@@ -59,7 +59,7 @@ fetch('footer.html')
     // --- Opcional: Carrusel Automático ---
     // Si quieres que el carrusel se mueva solo cada 5 segundos,
     // quita el comentario de la siguiente línea.
-    setInterval(nextSlide, 7000);
+    setInterval(nextSlide, 5000);
   
     // Muestra la primera diapositiva para empezar
     showSlide(currentSlideIndex);
