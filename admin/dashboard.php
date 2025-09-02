@@ -1,28 +1,30 @@
 <?php
-session_start();
-if (!isset($_SESSION['usuario'])) {
-    header("Location: ../login.html");
-    exit;
-}
+require_once __DIR__ . '/../php/auth.php';
+require_login();
+$u = current_user();
 ?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-    <head>
-    <meta charset="UTF-8">
-    <title>Panel de Administración</title>
-    </head>
-    <body>
-    <h2>Bienvenido, <?php echo $_SESSION['usuario']; ?>!</h2>
-
+<head>
+  <meta charset="utf-8">
+  <title>Panel - Tulipán</title>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>Bienvenido, <?= htmlspecialchars($u['nombre']) ?> (<?= htmlspecialchars($u['rol']) ?>)</div>
     <nav>
-        <ul>
-        <li><a href="productos.php">Administrar Productos</a></li>
-        <?php if ($_SESSION['rol'] === 'admin') : ?>
-        <li><a href="empleados.php">Administrar Empleados</a></li>
-        <?php endif; ?>
-        <li><a href="logout.php">Cerrar sesión</a></li>
-        </ul>
+      <?php if ($u['rol'] === 'admin'): ?>
+        <a href="empleados.php">Empleados</a>
+      <?php endif; ?>
+      <a href="productos.php">Productos</a>
+      <a href="carrusel.php">Carrusel</a>
+      <a href="logout.php">Salir</a>
     </nav>
-    </body>
+  </header>
+  <main class="container">
+    <h1>Panel de administración</h1>
+    <p>Usa el menú para gestionar el contenido según tu rol.</p>
+  </main>
+</body>
 </html>

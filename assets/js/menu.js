@@ -1,66 +1,115 @@
-// Cargar el header
-fetch('header.html')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('header').innerHTML = data;
+// ========== CARGAR HEADER Y FOOTER ==========
+async function cargarElementos() {
+  try {
+      // Cargar el header
+      const headerResponse = await fetch('header.html');
+      const headerData = await headerResponse.text();
+      document.getElementById('header').innerHTML = headerData;
+
+      // Cargar el footer
+      const footerResponse = await fetch('footer.html');
+      const footerData = await footerResponse.text();
+      document.getElementById('footer').innerHTML = footerData;
+
+      // ¡IMPORTANTE! Inicializar el menú hamburguesa DESPUÉS de cargar el header
+      inicializarMenuHamburguesa();
+
+  } catch (error) {
+      console.error('Error cargando elementos:', error);
+  }
+}
+
+// ========== MENÚ HAMBURGUESA ==========
+function inicializarMenuHamburguesa() {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  // Verificar que los elementos existen antes de continuar
+  if (!menuToggle || !navMenu) {
+      console.error('No se encontraron los elementos del menú');
+      return;
+  }
+
+  // Evento clic en hamburguesa
+  menuToggle.addEventListener('click', function() {
+      menuToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      console.log('Menú toggled'); // Para debug
   });
 
-// Cargar el footer
-fetch('footer.html')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('footer').innerHTML = data;
-  });
-
-  //Carrusel
-  document.addEventListener('DOMContentLoaded', () => {
-    // 1. Selecciona los elementos necesarios del carrusel
-    const slides = document.querySelectorAll('.slide');
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
-  
-    // 2. Variable para saber qué diapositiva se está mostrando
-    let currentSlideIndex = 0;
-  
-    // 3. Función para mostrar la diapositiva correcta
-    // Esta función es la que interactúa directamente con tu CSS.
-    // Al añadir o quitar la clase 'active', tu CSS hace que la diapositiva aparezca o desaparezca.
-    function showSlide(index) {
-      // Oculta todas las diapositivas quitando la clase 'active'
-      slides.forEach(slide => {
-        slide.classList.remove('active');
+  // Cerrar menú al hacer clic en un enlace (en móvil)
+  const navLinks = navMenu.querySelectorAll('a');
+  navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+          if (window.innerWidth <= 768) {
+              menuToggle.classList.remove('active');
+              navMenu.classList.remove('active');
+          }
       });
-      // Muestra solo la diapositiva deseada añadiendo la clase 'active'
+  });
+
+  // Cerrar menú al redimensionar ventana
+  window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+          menuToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+      }
+  });
+
+  console.log('Menú hamburguesa inicializado correctamente'); // Para debug
+}
+
+// ========== CARRUSEL ==========
+function inicializarCarrusel() {
+  const slides = document.querySelectorAll('.slide');
+  const prevButton = document.querySelector('.prev');
+  const nextButton = document.querySelector('.next');
+
+  // Solo ejecutar si existen elementos del carrusel
+  if (slides.length === 0 || !prevButton || !nextButton) {
+      return; // No hay carrusel en esta página
+  }
+
+  let currentSlideIndex = 0;
+
+  function showSlide(index) {
+      slides.forEach(slide => {
+          slide.classList.remove('active');
+      });
       slides[index].classList.add('active');
-    }
-  
-    // 4. Función para avanzar a la siguiente diapositiva
-    function nextSlide() {
+  }
+
+  function nextSlide() {
       currentSlideIndex++;
       if (currentSlideIndex >= slides.length) {
-        currentSlideIndex = 0; // Vuelve al inicio
+          currentSlideIndex = 0;
       }
       showSlide(currentSlideIndex);
-    }
-  
-    // 5. Función para retroceder a la diapositiva anterior
-    function prevSlide() {
+  }
+
+  function prevSlide() {
       currentSlideIndex--;
       if (currentSlideIndex < 0) {
-        currentSlideIndex = slides.length - 1; // Va a la última
+          currentSlideIndex = slides.length - 1;
       }
       showSlide(currentSlideIndex);
-    }
+  }
+
+  nextButton.addEventListener('click', nextSlide);
+  prevButton.addEventListener('click', prevSlide);
+
+  // Carrusel automático cada 5 segundos
+  setInterval(nextSlide, 5000);
+
+  // Mostrar la primera diapositiva
+  showSlide(currentSlideIndex);
+}
+
+// ========== INICIALIZACIÓN ==========
+document.addEventListener('DOMContentLoaded', function() {
+  // Cargar header y footer primero
+  cargarElementos();
   
-    // 6. Añade los "escuchadores" de clics a los botones
-    nextButton.addEventListener('click', nextSlide);
-    prevButton.addEventListener('click', prevSlide);
-  
-    // --- Opcional: Carrusel Automático ---
-    // Si quieres que el carrusel se mueva solo cada 5 segundos,
-    // quita el comentario de la siguiente línea.
-    setInterval(nextSlide, 5000);
-  
-    // Muestra la primera diapositiva para empezar
-    showSlide(currentSlideIndex);
-  });
+  // Inicializar carrusel (si existe en la página)
+  inicializarCarrusel();
+});

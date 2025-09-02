@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();
 include "conexion.php";
 
 $usuario = $_POST['usuario'];
@@ -28,6 +28,21 @@ if ($resultado->num_rows === 1) {
     }
 }
 
-echo "Usuario o contraseña incorrectos.";
+echo "Usuario o contraseña incorrectos.";*/
+<?php
+require_once __DIR__ . 'php/autenticacion.php';
+
+$error = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user = trim($_POST['usuario'] ?? '');
+    $pass = $_POST['password'] ?? '';
+    if ($user && $pass && login_user($user, $pass)) {
+        header('Location: ../admin/dashboard.php');
+        exit;
+    } else {
+        $error = 'Usuario o contraseña incorrectos.';
+    }
+}
+header('Location: ../login.html' . ($error ? '?e=1' : ''));
 ?>
 
