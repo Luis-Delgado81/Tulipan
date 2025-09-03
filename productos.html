@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Productos | Tulipán</title>
   <link rel="stylesheet" href="/assets/css/estilos.css">
-  <script src="/assets/js/menu.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+    <script src="/assets/js/menu.js"></script>
 </head>
 <body>
 
@@ -13,80 +18,141 @@
 
   <div id="header"></div>
 
-  <main class="productos-section">
-    <h2>Nuestros Productos</h2>
-    
-    
-    <div class="productos-grid">
-      <div class="producto">
-        <img src="assets/imagen/producto/pastel personalizado.jpg" alt="Pastel personalizado ">
-        <h3>Pastel Personalizado</h3>
-        <p>Pasteles únicos para celebraciones especiales. Diseños personalizados para bodas, cumpleaños y eventos.</p>
-        <p>$90.000</p>
-        
-        <!-- Creado para el boton cantidad y unidad el 21/07/2025 -->
-        <label class="cantidad-pastel">Cantidad:
-  <select id="cantidad-pastel" name="cantidad">
-    <option value="1">1 unidad</option>
-    <option value="2">2 unidades</option>
-    <option value="3">3 unidades</option>
-    <option value="4">4 unidades</option>
-    <option value="5">5 unidades</option>
-  </select>
-  </label>
-  <br>
-          <button class="btn">Ordenar Ahora</button>
-      </div>
+  <!-- Sección principal de productos -->
+  <main class="container my-5">
+    <h2 class="text-center mb-4">Nuestros Productos</h2>
 
-      <div class="producto">
-        <img src="assets/imagen/producto/pan-artesanal.jpg" alt="Pan artesanal">
-        <h3>Pan Artesanal</h3>
-        <p>Pan fresco horneado diariamente con ingredientes naturales y recetas tradicionales.</p>
-        <p>$8.000</p>
-  <br>
-        <button class="btn">Ordenar Ahora</button>
-      </div>
-
-      <div class="producto">
-        <img src="assets/imagen/producto/cupcakes_gourmet.jpg" alt="Cupcakes Gourmet.">
-        <h3>Cupcakes Gourmet</h3>
-        <p>Deliciosos cupcakes con frosting cremoso en variedad de sabores: vainilla, chocolate, red velvet.</p>
-        <p>$5.500</p>
-        <button class="btn">Ordenar Ahora</button>
-      </div>
-<br>
-      <div class="producto">
-        <img src="assets/imagen/producto/hojaldre.jpg" alt="Croissants y Hojaldres.">
-        <h3>Croissants y Hojaldres</h3>
-        <p>Croissants mantecosos y productos de hojaldre dulces y salados, perfectos para el desayuno.</p>
-        <p>$4.000</p>
-        <button class="btn">Ordenar Ahora</button>
-      </div>
-
-      <div class="producto">
-        <img src="assets/imagen/producto/galletas_artesanales.jpg" alt="Galletas Artesanales.">
-        <h3>Galletas Artesanales</h3>
-        <p>Galletas crujientes y suaves en diversos sabores: chispas de chocolate, avena, jengibre..</p>
-        <p>$3.000</p>
-        <button class="btn">Ordenar Ahora</button>
-      </div>
-
-      <div class="producto">
-        <img src="assets/imagen/producto/postre_especial.jpg" alt="Postres Especiales.">
-        <h3>Postres Especiales</h3>
-        <p>Tiramisú, cheesecake, flan, mousse de chocolate y otros postres irresistibles..</p>
-        <p>$15.000</p>
-  <br>     
-        <button class="btn">Ordenar Ahora</button>
-      </div>
+    <div class="row g-4">
       
+      <!-- Producto 1 -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card h-100">
+          <img src="assets/imagen/producto/pastel personalizado.jpg" class="card-img-top" alt="Pastel personalizado">
+          <div class="card-body">
+            <h5 class="card-title">Pastel Personalizado</h5>
+            <p class="card-text">Pasteles únicos para celebraciones especiales. Diseños personalizados para bodas, cumpleaños y eventos.</p>
+            <p class="fw-bold">$90.000</p>
+            <label for="cantidad-pastel" class="form-label">Cantidad:</label>
+            <select id="cantidad-pastel" name="cantidad" class="form-select mb-3">
+              <option value="1">1 unidad</option>
+              <option value="2">2 unidades</option>
+              <option value="3">3 unidades</option>
+              <option value="4">4 unidades</option>
+              <option value="5">5 unidades</option>
+            </select>
+            <button class="btn btn-primary w-100">Ordenar Ahora</button>
+          </div>
+        </div>
+      </div>
 
+      <!-- Producto 2 -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card h-100">
+          <img src="assets/imagen/producto/pan-artesanal.jpg" class="card-img-top" alt="Pan artesanal">
+          <div class="card-body">
+            <h5 class="card-title">Pan Artesanal</h5>
+            <p class="card-text">Pan fresco horneado diariamente con ingredientes naturales y recetas tradicionales. Pan de alta pureza, hechos con amor.</p>
+            <p class="fw-bold">$8.000</p>
+            <label for="cantidad-pastel" class="form-label">Cantidad:</label>
+            <select id="cantidad-pastel" name="cantidad" class="form-select mb-3">
+              <option value="1">1 unidad</option>
+              <option value="2">2 unidades</option>
+              <option value="3">3 unidades</option>
+              <option value="4">4 unidades</option>
+              <option value="5">5 unidades</option>
+            </select>
+            <button class="btn btn-primary w-100">Ordenar Ahora</button>
+          </div>
+        </div>
+      </div>
 
+      <!-- Producto 3 -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card h-100">
+          <img src="assets/imagen/producto/cupcakes_gourmet.jpg" class="card-img-top" alt="Cupcakes Gourmet">
+          <div class="card-body">
+            <h5 class="card-title">Cupcakes Gourmet</h5>
+            <p class="card-text">Deliciosos cupcakes con frosting cremoso en variedad de sabores: vainilla, chocolate, red velvet.</p>
+            <p class="fw-bold">$5.500</p>
+            <label for="cantidad-pastel" class="form-label">Cantidad:</label>
+            <select id="cantidad-pastel" name="cantidad" class="form-select mb-3">
+              <option value="1">1 unidad</option>
+              <option value="2">2 unidades</option>
+              <option value="3">3 unidades</option>
+              <option value="4">4 unidades</option>
+              <option value="5">5 unidades</option>
+            </select>
+            <button class="btn btn-primary w-100">Ordenar Ahora</button>
+          </div>
+        </div>
+      </div>
 
-      <!-- Puedes seguir agregando productos manualmente por ahora -->
+      <!-- Producto 4 -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card h-100">
+          <img src="assets/imagen/producto/hojaldre.jpg" class="card-img-top" alt="Croissants y Hojaldres">
+          <div class="card-body">
+            <h5 class="card-title">Croissants y Hojaldres</h5>
+            <p class="card-text">Croissants mantecosos y productos de hojaldre dulces y salados, perfectos para el desayuno.</p>
+            <p class="fw-bold">$4.000</p>
+            <label for="cantidad-pastel" class="form-label">Cantidad:</label>
+            <select id="cantidad-pastel" name="cantidad" class="form-select mb-3">
+              <option value="1">1 unidad</option>
+              <option value="2">2 unidades</option>
+              <option value="3">3 unidades</option>
+              <option value="4">4 unidades</option>
+              <option value="5">5 unidades</option>
+            </select>
+            <button class="btn btn-primary w-100">Ordenar Ahora</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 5 -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card h-100">
+          <img src="assets/imagen/producto/galletas_artesanales.jpg" class="card-img-top" alt="Galletas Artesanales">
+          <div class="card-body">
+            <h5 class="card-title">Galletas Artesanales</h5>
+            <p class="card-text">Galletas crujientes y suaves en diversos sabores: chispas de chocolate, avena, jengibre.</p>
+            <p class="fw-bold">$3.000</p>
+            <label for="cantidad-pastel" class="form-label">Cantidad:</label>
+            <select id="cantidad-pastel" name="cantidad" class="form-select mb-3">
+              <option value="1">1 unidad</option>
+              <option value="2">2 unidades</option>
+              <option value="3">3 unidades</option>
+              <option value="4">4 unidades</option>
+              <option value="5">5 unidades</option>
+            </select>
+            <button class="btn btn-primary w-100">Ordenar Ahora</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 6 -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card h-100">
+          <img src="assets/imagen/producto/postre_especial.jpg" class="card-img-top" alt="Postres Especiales">
+          <div class="card-body">
+            <h5 class="card-title">Postres Especiales</h5>
+            <p class="card-text">Tiramisú, cheesecake, flan, mousse de chocolate y otros postres irresistibles.</p>
+            <p class="fw-bold">$15.000</p>
+            <label for="cantidad-pastel" class="form-label">Cantidad:</label>
+            <select id="cantidad-pastel" name="cantidad" class="form-select mb-3">
+              <option value="1">1 unidad</option>
+              <option value="2">2 unidades</option>
+              <option value="3">3 unidades</option>
+              <option value="4">4 unidades</option>
+              <option value="5">5 unidades</option>
+            </select>
+            <button class="btn btn-primary w-100">Ordenar Ahora</button>
+          </div>
+        </div>
+      </div>
 
     </div>
   </main>
+
 
   <!-- Footer -->
 <div id="footer"></div>
