@@ -163,6 +163,12 @@
     color: #ff6347;
     margin: 0 1rem 1rem;
   }
+   /*para poner las imagenes de los productos del mismo tamaño*/
+   .card-img-top {
+    height: 250px; /* o el alto que prefieras */
+    object-fit: cover;
+    width: 100%;
+  }
   
   /* Pie de página */
  /* Footer */
