@@ -17,5 +17,5 @@ Bienvenido al repositorio de **Tulipán**, una panadería artesanal con tradici�
 - Carrusel de imágenes.  
 
 ## 👨‍🍳 Sobre Tulipán  
-Panadería artesanal ubicada en [Tu ciudad], dedicada a ofrecer pan fresco y postres con ingredientes de calidad.  
+Panadería artesanal ubicada en Malambo, dedicada a ofrecer pan fresco y postres con ingredientes de calidad.  
 # Tulipan
