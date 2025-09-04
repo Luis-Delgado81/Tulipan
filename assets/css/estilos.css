@@ -95,6 +95,19 @@
     cursor: pointer;
     
   }
+
+  /*Cambiando clase btn btn-primary*/
+  .btn-tomato {
+    background-color: #ff6347;
+    border-color: #ff6347;
+    color: #fff; /* para que el texto se lea bien */
+  }
+  .btn-tomato:hover {
+    background-color: #e5533f; /* un tono más oscuro al pasar el mouse */
+    border-color: #e5533f;
+  }
+  
+  
   /* cantidad por unidades 21/07/2005*/
   .cantidad-pastel{
     background-color: #f3f3f3;
@@ -169,7 +182,7 @@
     object-fit: cover;
     width: 100%;
   }
-  
+
   /* Pie de página */
  /* Footer */
  footer {
